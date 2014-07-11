@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "Submit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (ViewBag.ErrorMsg != null)
+    {
+        <div class="alert alert-danger" role="alert">@ViewBag.ErrorMsg</div>
+    }
+     @if (ViewBag.SuccessMsg != null)
+    {
+        <div class="alert alert-info" role="alert">@ViewBag.SuccessMsg</div>
+    }

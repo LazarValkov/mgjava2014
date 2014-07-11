@@ -1,0 +1,19 @@
+﻿@model IEnumerable<MgJava2014.Models.DbModel.Question>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Въпроси</h2>
+
+<table class="table table-striped">
+    <tr><th>Въпрос</th><th>Брой точки</th></tr>
+    @foreach (var question in Model)
+    {
+        <tr>
+            <td>@Html.ActionLink(question.QuestionName, "Details", new {questionId = question.Id})</td>
+            <td>@question.Points</td>
+        </tr>
+    }
+</table>

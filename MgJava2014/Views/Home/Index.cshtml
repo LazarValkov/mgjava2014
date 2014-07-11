@@ -1,0 +1,17 @@
+﻿@model IEnumerable<MgJava2014.Models.DbModel.User>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Класация</h2>
+<table class="table table-striped">
+    <tr><th>Потребителско име</th><th>Брой точки</th></tr>
+    @foreach (var user in Model)
+    {
+        <tr>
+            <td>@user.username</td>
+            <td>@user.Score.points</td>
+        </tr>
+    }
+</table>

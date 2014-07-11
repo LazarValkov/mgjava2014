@@ -1,0 +1,52 @@
+﻿@model MgJava2014.Models.QuestionAnswered
+
+@{
+    ViewBag.Title = "QuestionAnswered";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>QuestionAnswered</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    if (ViewBag.ErrorMsg != null)
+    {
+        <div class="alert alert-danger" role="alert">@ViewBag.ErrorMsg</div>
+    }
+    if (ViewBag.SuccessMsg != null)
+    {
+        <div class="alert alert-info" role="alert">@ViewBag.SuccessMsg</div>
+    }
+    <fieldset>
+        <legend>AnsweredQuestion</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.username)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.username)
+            @Html.ValidationMessageFor(model => model.username)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.questionName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.questionName)
+            @Html.ValidationMessageFor(model => model.questionName)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

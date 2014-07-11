@@ -1,0 +1,57 @@
+﻿@model MgJava2014.Models.DbModel.Question
+
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Добави въпрос</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    if (ViewBag.ErrorMsg != null)
+    {
+        <div class="alert alert-danger" role="alert">@ViewBag.ErrorMsg</div>
+    }
+     if (ViewBag.SuccessMsg != null)
+    {
+        <div class="alert alert-info" role="alert">@ViewBag.SuccessMsg</div>
+    }
+    <fieldset>
+        <legend>Question</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.QuestionName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.QuestionName)
+            @Html.ValidationMessageFor(model => model.QuestionName)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Points)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Points)
+            @Html.ValidationMessageFor(model => model.QuestionName)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.QuestionText)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.QuestionText)
+            @Html.ValidationMessageFor(model => model.QuestionText)
+        </div>
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

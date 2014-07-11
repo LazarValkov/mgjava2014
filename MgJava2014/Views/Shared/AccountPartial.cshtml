@@ -1,0 +1,9 @@
+﻿@if (!User.Identity.IsAuthenticated)
+{
+    <li>@Html.ActionLink("Регистрирай се", "Register", "Account")</li>
+    <li>@Html.ActionLink("Влез", "Login", "Account")</li>
+} else
+{
+    <li><a>Здравей, @User.Identity.Name</a></li>
+    <li>@Html.ActionLink("Излез", "Logout", "Account")</li>
+}
